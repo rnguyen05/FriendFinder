@@ -1,0 +1,29 @@
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+    border-bottom: 1px grey solid;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.h2-custom {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 40px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+h2 {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+a {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    color: gray;
+    margin-right: 10px;
+    margin-left: 3px;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
