@@ -1,23 +1,34 @@
-// Basic route that sends the user first to the AJAX Page
-app.get("/api/friends", function(req, res) {
-    res.sendFile(path.join(__dirname, "view.html"));
+// ===============================================================================
+// LOAD DATA
+// We are linking our routes to a series of "data" sources.
+// These data sources hold arrays of information on table-data, waitinglist, etc.
+// ===============================================================================
+var express = require("express");
+var apiRouter = express.Router();
+// var path = require("path");
+
+var friendsData = require("../data/friends");
+
+
+
+// API GET Requests
+// Below code handles when users "visit" a page.
+// In each of the below cases when a user visits a link
+apiRouter.get("/api/survey", function(req, res) {
+  res.json(friendsData);
+});
+
+  
+
+  // API POST Requests
+  // Below code handles when a user submits a form and thus submits data to the server.
+  // In each of the below cases, when a user submits form data (a JSON object)
+  // ...the JSON is pushed to the appropriate JavaScript array
+
+  apiRouter.post("/api/survey", function(req, res) {
+      friendsData.push(req.body);
+      res.json(friendsData);
   });
-  
-  // Create New Friend - takes in JSON input
-app.post("/api/friends", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body-parser middleware
-    var newfriend = req.body;
-  
-    // Using a RegEx Pattern to remove spaces from newCharacter
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newfriend.routeName = newfriend.name.replace(/\s+/g, "").toLowerCase();
-  
-    console.log(newfriend);
-  
-    characters.push(newfriend);
-  
-    res.json(newfriend);
-  });
-  
-  
+
+
+ module.exports = apiRouter;

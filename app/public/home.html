@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friends Finder</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
     <div class="container">
@@ -20,17 +21,16 @@
               <br>
         
               <div class="text-center">
-                <a href="/tables"><button type="button" class="btn btn-lg btn-secondary"><i class="fas fa-users"></i>  Go to Survey</button></a>
+                <a href="/survey"><button id="surveyBtn" type="button" class="btn btn-lg btn-secondary"><h3><i class="fas fa-users"></i>  Go to Survey</h3></button></a>
               </div>
         
             </div>
         
-            <footer class="footer">
+            <footer class="footer float-right">
               <div class="container">
                 <p><i class="fas fa-users"></i><a href="/api/survey">API Friends List</a><i class="fas fa-users"></i><a href="https://github.com/rnguyen05/FriendFinder">GitHub Repo</a></p>
               </div>
             </footer>
-        
           </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
