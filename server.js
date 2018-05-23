@@ -17,18 +17,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 /*************************************/
-//Static routing for style.css
+//Static routing 
 app.use(express.static(__dirname + "/app/public/"));
 
 app.use("/", apiRoutes);
 app.use("/", htmlRoutes);
 
 // Catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 
 
@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT " + PORT + ". Point your browser to: http://localhost:"+ PORT);
   });
 
 

@@ -6,10 +6,13 @@
 var express = require("express");
 var apiRouter = express.Router();
 // var path = require("path");
+var bodyParser = require("body-parser");
 
 var friendsData = require("../data/friends");
 
-
+// Sets up the Express app to handle data parsing
+apiRouter.use(bodyParser.urlencoded({ extended: true }));
+apiRouter.use(bodyParser.json());
 
 // API GET Requests
 // Below code handles when users "visit" a page.
@@ -17,8 +20,6 @@ var friendsData = require("../data/friends");
 apiRouter.get("/api/survey", function(req, res) {
   res.json(friendsData);
 });
-
-  
 
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
@@ -28,6 +29,7 @@ apiRouter.get("/api/survey", function(req, res) {
   apiRouter.post("/api/survey", function(req, res) {
       friendsData.push(req.body);
       res.json(friendsData);
+      console.log(req.body);  
   });
 
 

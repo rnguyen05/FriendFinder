@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light|Amatic+SC" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <div class="container">
@@ -149,7 +149,7 @@
                         </select>
                     </div>
                     <br>
-                    <button type="submit" class=" submit btn btn-lg btn-secondary"><h3><i class="fas fa-users"></i> Submit</h3></button>
+                    <button type="submit" class="submit btn btn-lg btn-secondary"><h3><i class="fas fa-users"></i> Submit</h3></button>
                     <br>
                     <br>
                 </form>
@@ -220,7 +220,7 @@
     }
 
     // Capture the form inputs
-    $("#submit").on("click", function(event) {
+    $(".submit").on("click", function(event) {
       event.preventDefault();
 
       // Form validation
@@ -259,7 +259,7 @@
             $("#q10").val()
           ]
         };
-
+        console.log(userData);
         // AJAX post the data to the friends API.
         $.post("/api/survey", userData, function(data) {
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
