@@ -1,16 +1,10 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================
+
 var express = require("express");
 var apiRouter = express.Router();
 
 var friendsData = require("../data/friends");
 
-// API GET Requests
-// Below code handles when users "visit" a page.
-// In each of the below cases when a user visits a link
+// API GET Requests and Response back a JSON array of objects
 apiRouter.get("/api/friends", function(req, res) {
   res.json(friendsData);
 });
@@ -18,7 +12,7 @@ apiRouter.get("/api/friends", function(req, res) {
 // API POST Requests
 // Below code handles when a user submits a form and thus submits data to the server.
 // In each of the below cases, when a user submits form data (a JSON object)
-// ...the JSON is pushed to the appropriate JavaScript array
+// ...the JSON is pushed to the JavaScript array
 apiRouter.post("/api/friends", function(req, res) {
     var newFriend = req.body;
     
@@ -34,8 +28,11 @@ apiRouter.post("/api/friends", function(req, res) {
       }
     }//End for loop
 
+    //Find Best Match Friend Code Below
     var bestMatch = {};
     var matchedFriend = 0;
+    //Maximum scores for ten questions is 40 (40 = 10 questions x 4 <different between 5 and 1 choices>). 
+    //This number is difference based on number of questions and choices of answers
     var bestMatchedScore = 40;
 
     //Loop through all friends array
@@ -46,13 +43,14 @@ apiRouter.post("/api/friends", function(req, res) {
         var diff = Math.abs(friendsData[friend].scores[score] - newFriend.scores[score]);
         totalScoresDiff += diff;
       }//End of inner loop
-
+      //Console log to check if app gives accurate result.
+      console.log(totalScoresDiff, friendsData[friend].name);
+      
       if (totalScoresDiff < bestMatchedScore) {
         matchedFriend = friend;
         bestMatchedScore = totalScoresDiff;
       }
     }//End of outter loop
-
 
     //bestMatch found
     bestMatch = friendsData[matchedFriend];

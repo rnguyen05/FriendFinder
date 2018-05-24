@@ -275,7 +275,7 @@
                     <i class="fas fa-users"></i>
                     <a href="/">Home</a>
                     <i class="fas fa-users"></i>
-                    <a href="/api/friends">API Friends List</a>
+                    <a href="/api/friends" target="_blank">API Friends List</a>
                     <i class="fas fa-users"></i>
                     <a href="https://github.com/rnguyen05/FriendFinder" target="_blank">GitHub Repo</a>
                 </p>
@@ -313,11 +313,31 @@
 <script>
     // Grab the URL of the website
     var currentURL = window.location.origin;
+
     // Get the form inputs
     $(".submit").on("click", function () {
         event.preventDefault();
 
-        if (($('#name').val().trim() !== "") && ($('#photo').val().trim() !== "")) {
+        // Form validation
+        function validateForm() {
+            var isValid = true;
+            //Check to see if Name and Photo are filled
+            $(".form-control").each(function() {
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
+            //Check to see if all answers are filled
+            $(".chosen-select").each(function() {
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }//End of validateForm()
+
+        // If all required fields are filled
+        if (validateForm()) {
             // Create an object for the user's data
             var userData = {
                 name: $("#name").val(),
@@ -346,6 +366,7 @@
                 // clear the input fields in the form
                 $("#name").val("");
                 $("#photo").val("");
+                $(".modal-footer").html("<h3><i class='fas fa-users'></i>  FriendFinder</h3>");
             });
             //Close modal and go to home page
             $('#closeModal').click(function () {
@@ -359,7 +380,6 @@
             $(".modal-footer").html("<h3><i class='fas fa-users'></i>  FriendFinder</h3>");
             $("#resultsModal").modal('toggle');
         }
-        return false;
     });
 </script>
 </html>

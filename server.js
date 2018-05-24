@@ -34,8 +34,6 @@ app.use(function(req, res, next) {
 // =============================================================
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT + ". Point your browser to: http://localhost:"+ PORT);
-  });
+});
 
-
-//module.exports = app;
   
