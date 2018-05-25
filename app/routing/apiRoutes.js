@@ -46,7 +46,7 @@ apiRouter.post("/api/friends", function(req, res) {
         i++;
       });
       //Console log to check if app gives accurate result.
-      //console.log(totalScoresDiff, friendsData[friend].name);
+      console.log(totalScoresDiff, friend.name);
       
       if (totalScoresDiff < bestMatchedScore) {
         matchedFriend = friend;
