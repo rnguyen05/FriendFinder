@@ -16,17 +16,31 @@ apiRouter.get("/api/friends", function(req, res) {
 apiRouter.post("/api/friends", function(req, res) {
     var newFriend = req.body;
     
-    for (var j = 0; j < newFriend.scores.length; j++) {
-      if (newFriend.scores[j] == "1 (Strongly Disagree)") {
-        newFriend.scores[j] = 1;
+    //Loop through newFriend scores and convert 
+    //"1 (Strongly Disagree)" and "5 (Strongly Agree)" to 1 and 5 respectively
+    newFriend.scores.forEach(function(score) {
+      if (score.scores == "1 (Strongly Disagree)") {
+        score.scores = 1;
       }
-      else if (newFriend.scores[j] == "5 (Strongly Agree)") {
-        newFriend.scores[j] = 5;
-      } 
+      else if (score.scores == "5 (Strongly Agree)") {
+        score.scores = 5;
+      }
       else {
-        newFriend.scores[j] = parseInt(newFriend.scores[j]);
+        score.scores = parseInt(score.scores);
       }
-    }//End for loop
+    });//End for loop
+  
+//     for (var j = 0; j < newFriend.scores.length; j++) {
+//       if (newFriend.scores[j] == "1 (Strongly Disagree)") {
+//         newFriend.scores[j] = 1;
+//       }
+//       else if (newFriend.scores[j] == "5 (Strongly Agree)") {
+//         newFriend.scores[j] = 5;
+//       } 
+//       else {
+//         newFriend.scores[j] = parseInt(newFriend.scores[j]);
+//       }
+//     }
 
     //Find Best Match Friend Code Below
     var bestMatch = {};
