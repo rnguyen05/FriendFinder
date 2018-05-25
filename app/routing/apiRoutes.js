@@ -37,39 +37,22 @@ apiRouter.post("/api/friends", function(req, res) {
     //This number is difference based on number of questions and choices of answers
     var bestMatchedScore = 40;
     
-    friendsData.forEach(function (friend) {
+    //Loop through all friends array
+    for (var friend = 0; friend < friendsData.length; friend++) {
       var totalScoresDiff = 0;
-      var i = 0;
-      friend.scores.forEach(function (score) {
-        var diff = Math.abs(score.scores - newFriend.scores[i]);
-        console.log("diff: ", diff);
-        i++;
-      });
+      //Loop through individual's friend scores
+      for (var score = 0; score < friendsData[friend].scores.length; score++) {
+        var diff = Math.abs(friendsData[friend].scores[score] - newFriend.scores[score]);
+        totalScoresDiff += diff;
+      }//End of inner loop
       //Console log to check if app gives accurate result.
-      console.log(totalScoresDiff, friend.name);
+      console.log(totalScoresDiff, friendsData[friend].name);
       
       if (totalScoresDiff < bestMatchedScore) {
         matchedFriend = friend;
         bestMatchedScore = totalScoresDiff;
       }
-    });
-    
-//     //Loop through all friends array
-//     for (var friend = 0; friend < friendsData.length; friend++) {
-//       var totalScoresDiff = 0;
-//       //Loop through individual's friend scores
-//       for (var score = 0; score < friendsData[friend].scores.length; score++) {
-//         var diff = Math.abs(friendsData[friend].scores[score] - newFriend.scores[score]);
-//         totalScoresDiff += diff;
-//       }//End of inner loop
-//       //Console log to check if app gives accurate result.
-//       console.log(totalScoresDiff, friendsData[friend].name);
-      
-//       if (totalScoresDiff < bestMatchedScore) {
-//         matchedFriend = friend;
-//         bestMatchedScore = totalScoresDiff;
-//       }
-//     }//End of outter loop
+    }//End of outter loop
 
     //bestMatch found
     bestMatch = friendsData[matchedFriend];
