@@ -29,18 +29,6 @@ apiRouter.post("/api/friends", function(req, res) {
         score.scores = parseInt(score.scores);
       }
     });//End for loop
-  
-//     for (var j = 0; j < newFriend.scores.length; j++) {
-//       if (newFriend.scores[j] == "1 (Strongly Disagree)") {
-//         newFriend.scores[j] = 1;
-//       }
-//       else if (newFriend.scores[j] == "5 (Strongly Agree)") {
-//         newFriend.scores[j] = 5;
-//       } 
-//       else {
-//         newFriend.scores[j] = parseInt(newFriend.scores[j]);
-//       }
-//     }
 
     //Find Best Match Friend Code Below
     var bestMatch = {};
