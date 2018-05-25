@@ -36,15 +36,14 @@ apiRouter.post("/api/friends", function(req, res) {
     //Maximum different score for ten questions is 40 (40 = 10 questions x 4 <different between 5 and 1 choices>). 
     //This number is difference based on number of questions and choices of answers
     var bestMatchedScore = 40;
-
-    //Loop through all friends array
-    for (var friend = 0; friend < friendsData.length; friend++) {
+    
+    friendsData.forEach(function (friend) {
       var totalScoresDiff = 0;
-      //Loop through individual's friend scores
-      for (var score = 0; score < friendsData[friend].scores.length; score++) {
-        var diff = Math.abs(friendsData[friend].scores[score] - newFriend.scores[score]);
-        totalScoresDiff += diff;
-      }//End of inner loop
+      var i = 0;
+      friend.scores.forEach(function (score) {
+        var diff = Math.abs(score.scores - newFriend.scores[i]);
+        i++;
+      });
       //Console log to check if app gives accurate result.
       console.log(totalScoresDiff, friendsData[friend].name);
       
@@ -52,7 +51,24 @@ apiRouter.post("/api/friends", function(req, res) {
         matchedFriend = friend;
         bestMatchedScore = totalScoresDiff;
       }
-    }//End of outter loop
+    });
+    
+//     //Loop through all friends array
+//     for (var friend = 0; friend < friendsData.length; friend++) {
+//       var totalScoresDiff = 0;
+//       //Loop through individual's friend scores
+//       for (var score = 0; score < friendsData[friend].scores.length; score++) {
+//         var diff = Math.abs(friendsData[friend].scores[score] - newFriend.scores[score]);
+//         totalScoresDiff += diff;
+//       }//End of inner loop
+//       //Console log to check if app gives accurate result.
+//       console.log(totalScoresDiff, friendsData[friend].name);
+      
+//       if (totalScoresDiff < bestMatchedScore) {
+//         matchedFriend = friend;
+//         bestMatchedScore = totalScoresDiff;
+//       }
+//     }//End of outter loop
 
     //bestMatch found
     bestMatch = friendsData[matchedFriend];
