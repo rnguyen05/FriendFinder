@@ -40,13 +40,13 @@ apiRouter.post("/api/friends", function(req, res) {
     friendsData.forEach(function (friend) {
       var totalScoresDiff = 0;
       var i = 0;
-//       friend.scores.forEach(function (score) {
-//         var diff = Math.abs(score.scores - newFriend.scores[i]);
-//         console.log("diff: ", diff);
-//         i++;
-//       });
+      friend.scores.forEach(function (score) {
+        var diff = Math.abs(score.scores - newFriend.scores[i]);
+        console.log("diff: ", diff);
+        i++;
+      });
       //Console log to check if app gives accurate result.
-      console.log(totalScoresDiff, friendsData[friend].name);
+      //console.log(totalScoresDiff, friendsData[friend].name);
       
       if (totalScoresDiff < bestMatchedScore) {
         matchedFriend = friend;
