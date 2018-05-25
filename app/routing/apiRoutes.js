@@ -33,7 +33,7 @@ apiRouter.post("/api/friends", function(req, res) {
     //Find Best Match Friend Code Below
     var bestMatch = {};
     var matchedFriend = 0;
-    //Maximum scores for ten questions is 40 (40 = 10 questions x 4 <different between 5 and 1 choices>). 
+    //Maximum different score for ten questions is 40 (40 = 10 questions x 4 <different between 5 and 1 choices>). 
     //This number is difference based on number of questions and choices of answers
     var bestMatchedScore = 40;
 
