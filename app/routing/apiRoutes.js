@@ -42,6 +42,7 @@ apiRouter.post("/api/friends", function(req, res) {
       var i = 0;
       friend.scores.forEach(function (score) {
         var diff = Math.abs(score.scores - newFriend.scores[i]);
+        console.log("diff: ", diff);
         i++;
       });
       //Console log to check if app gives accurate result.
