@@ -8,6 +8,7 @@ This full-stack site will take in results from users' surveys, then compare thei
 ## Modals
 * Matched Friend Found <br/>
 ![Image of New Friend](https://github.com/rnguyen05/FriendFinder/blob/master/screenshots/newfriend.png?raw=true)
+
 * Missing Required Information <br/>
 ![Image of Missing Required Informaiton](https://github.com/rnguyen05/FriendFinder/blob/master/screenshots/missingrequiredinformation.png?raw=true)
 
