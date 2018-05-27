@@ -56,4 +56,4 @@ This full-stack site will take in results from users' surveys, then compare thei
 * Run on Heroku server: https://friendfinder-052018.herokuapp.com/
 
 ## Demo Video
-[![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/ie3ZaR1xMog/3.jpg?time=1527229024522)](https://youtu.be/ie3ZaR1xMog)
+[![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/xRSCS6ieZMw/2.jpg?time=1527379686454)](https://youtu.be/xRSCS6ieZMw)
