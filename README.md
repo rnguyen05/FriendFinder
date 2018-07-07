@@ -30,7 +30,7 @@ This full-stack site will take in results from users' surveys, then compare thei
     var bestMatch = {};
     var matchedFriend = 0;
     //Maximum scores for ten questions is 40 (40 = 10 questions x 4 <different between 5 and 1 choices>). 
-    //This number is difference based on number of questions and choices of answers
+    //This number is change based on number of questions and choices of answers
     var bestMatchedScore = 40;
 
     //Loop through all friends array
